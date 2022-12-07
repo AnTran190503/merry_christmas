@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>merry_chịt_mợt</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css" rel="stylesheet">
+	<style>
+	.mycursor {
+        cursor: url("https://cdn-icons-png.flaticon.com/128/3119/3119214.png"), auto;
+        height: 50px;
+        border: 1px solid red;
+    }
+		* {
+			margin:0;
+			padding: 0;
+		}
+		html, body {
+		  height: 100%;
+		}
+		header div {
+			width: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+		header div img {
+			position: absolute;
+			z-index: 1;
+			top: 30px;
+			width: 50%;
+		}
+		#main-section .background-image {
+			width: 100%;
+			opacity: 1;
+			z-index: 0;
+		}
+		#gifts-section{
+			background-color: #292727;
+		}
+		#gifts-section .gift-container {
+			display: inline;
+		}
+		#gifts-section img {
+			cursor: pointer;
+			transform: scale(0.7);
+		}
+		#gifts-section .open-gift {
+			display: none;
+		}
+		#qua1 {
+			background:black;
+			opacity: .8;
+			position: fixed;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			display: flex;
+			display: none;
+			align-items: center;
+			justify-content: center;
+		}
+		#qua1 #qua-in-qua1 {
+			width: 45%;
+			height: 500px;
+			border-radius: 50%;
+			background: white;
+			z-index: 1;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+		#qua1 #qua-in-qua1 img {
+			
+			transform: scale(.5);
+		}
+		#qua1 #qua-in-qua1 button {
+			position: absolute;
+			bottom: 10px;
+			padding: 10px;
+		}
+
+		/*=================*/
+
+		#qua2 {
+			background:black;
+			opacity: .8;
+			position: fixed;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			display: flex;
+			display: none;
+			align-items: center;
+			justify-content: center;
+		}
+		#qua2 #qua-in-qua2 {
+			width: 45%;
+			height: 500px;
+			border-radius: 50%;
+			background: #8000ff;
+			z-index: 1;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+		#qua2 #qua-in-qua2 img {
+			
+			transform: scale(.5);
+		}
+		#qua2 #qua-in-qua2 button {
+			position: absolute;
+			bottom: 10px;
+		}
+		/*================*/
+		#qua3 {
+			background:#060606;
+			opacity: .8;
+			position: fixed;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			display: flex;
+			display: none;
+			justify-content: center;
+			align-items: center;
+		}
+		#qua3 #qua3-guide {
+			font-size: 4vw;
+			color: white;
+			display: none;
+		}
+		#qua3 #cards-container {
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+			flex-wrap: wrap;
+			display: none;
+		}
+		.card {
+			padding: 10px;
+			position: absolute;
+		}
+		.card:hover {
+			transform: scale(1.2);
+		}
+		.animate {
+			transform: rotate(720deg);
+			transition: all 2s;
+		}
+		
+
+		#qua3-st {
+			background:black;
+			opacity: .8;
+			position: fixed;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			display: flex;
+			display: none;
+			align-items: center;
+			justify-content: center;
+		}
+		#qua3-st #qua-in-qua3 {
+			width: 45%;
+			height: 500px;
+			border-radius: 50%;
+			background: #832323;
+			z-index: 1;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+		#qua3-st #qua-in-qua3 img {
+			
+			transform: scale(.5);
+		}
+		#qua3-st #qua-in-qua3 button {
+			position: absolute;
+			bottom: 10px;
+			padding: 10px;
+		}
+		#qua4 {
+			background:black;
+			opacity: .8;
+			position: fixed;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			display: flex;
+			display: none;
+			align-items: center;
+			justify-content: center;
+		}
+		#form-enter-name {
+			margin-top: -500px;
+		}
+		#qua4 .ok {
+			padding: 12px;
+			margin-left: 5px;
+			margin-top: -5px;
+		}
+		.hello {
+			font-size: 4vw;
+			color: white;
+			text-shadow: 0px 3px 0px #b2a98f,
+                 0px 14px 10px rgba(0,0,0,0.15),
+                 0px 24px 2px rgba(0,0,0,0.1),
+                 0px 34px 30px rgba(0,0,0,0.1);
+            padding: 20px;
+		}
+		.happy-complete {
+			font-size: 4vw;
+			color: white;
+			text-shadow: 0px 3px 0px #b2a98f,
+                 0px 14px 10px rgba(0,0,0,0.15),
+                 0px 24px 2px rgba(0,0,0,0.1),
+                 0px 34px 30px rgba(0,0,0,0.1);
+            padding: 20px;
+		}
+		.question {
+			text-align: center;
+			background-color: #5A947C;
+			width: 500px;
+			color: black;
+			border-radius: 49%;
+			padding: 50px;
+			font-size: 1.5em;
+			text-shadow: 0px 3px 0px #b2a98f,
+                 0px 14px 10px rgba(0,0,0,0.15),
+                 0px 24px 2px rgba(0,0,0,0.1),
+                 0px 34px 30px rgba(0,0,0,0.1);
+            border:5px solid white;
+		}
+		.answer {
+			color: #9401AA;
+			width: 500px;
+			background: #3E8891;
+			padding: 12px;
+			margin-top: 10px;
+            border:5px solid white;
+		}
+		.answer:hover {
+			background-color: #2DAFD9;	
+		}
+		.answer-result-true {
+			font-size: 2em;
+			color: green;
+			font-style: italic;
+			text-align: center;
+		}
+		.answer-result-false {
+			font-size: 2em;
+			color: red;
+			font-style: italic;
+			text-align: center;
+		}
+
+		#qua4-me {
+			background:black;
+			opacity: .8;
+			position: fixed;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			display: flex;
+			display: none;
+			align-items: center;
+			justify-content: center;
+		}
+		#qua4-me #qua-in-qua4 {
+			width: 45%;
+			height: 500px;
+			border-radius: 50%;
+			background: white;
+			z-index: 1;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}	
+		#qua4-me #qua-in-qua4 img {
+
+			border-radius: 5%;
+		}
+		#qua4-me #qua-in-qua4 button {
+			position: absolute;
+			bottom: 10px;
+			padding: 10px;
+		}
+	</style>
+</head>
+<body>
+    <div class="mycursor">
+	<header>
+		<div>
+			<img src="merry.gif" alt="Image">
+			
+		</div>
+	</header>
+	<section id="main-section">
+		<img src="gifmua.gif" alt="an.jpg" class="background-image">
+	</section>
+	<section id="gifts-section" class="col-12">
+		<div class="gift-container">
+			<img src="goi-dac-biet.gif" alt="goi-dac-biet.gif" class="gift col-3">
+			<button class="btn btn-danger open-gift open-gift1">Mở</button>
+		</div>
+		
+		<div class="gift-container">
+			<img src="KH8E.gif" alt="KH8E.gif" class="gift col-2">
+			<button class="btn btn-danger open-gift open-gift2">Mở</button>
+		</div>
+			
+		<div class="gift-container">
+			<img src="6a00d8341caabc53ef01b7c708a8e7970b-600wi.gif" alt="tenor.gif" class="gift col-3">
+			<button class="btn btn-danger open-gift open-gift3">Mở</button>
+		</div>
+		<div class="gift-container">
+			<img src="green-slime-11.gif" alt="tenor (1).gif" class="gift col-3">
+			<button class="btn btn-danger open-gift open-gift4">Mở</button>
+		</div>
+		<button class="btn btn-warning col-12"><em><strong>CHỌN CHO MÌNH MỘT MÓN QUÀ NÀO<strong><em></button>
+	</section>
+	<div id="qua1">
+		<img src="goi-dac-biet.gif" alt="goi-dac-biet.gif" class="qua-img1">
+		<div id="qua-in-qua1" class="col-5">
+			<img src="maria.jpg" alt="green-slime-11.gif" style="width:400px;">
+			<button class="btn btn-danger get-button get-button1">
+				NHẬN
+			</button>
+		</div>
+	</div>
+	<div id="qua2">
+		<img src="KH8E.gif" alt="KH8E.gif" class="qua-img2">
+		<div id="qua-in-qua2" class="col-5">
+			<h2 style="color: white;">Chúc bạn may mắn lần sau :D</h2>
+			<button class="btn btn-danger get-button">
+				NHẬN
+			</button>
+		</div>
+	</div>
+	<div id="qua3-st">
+		<img src="6a00d8341caabc53ef01b7c708a8e7970b-600wi.gif" alt="goi-dac-biet.gif" class="qua-img3">
+		<div id="qua-in-qua3" class="col-5">
+			<img src="bo sua.jpg" alt="green-slime-11.gif" style="width:500px;border-radius: 8%;">
+			<button class="btn btn-warning get-button">
+				NHẬN
+			</button>
+		</div>
+	</div>
+	<div id="qua3">
+		<img src="6a00d8341caabc53ef01b7c708a8e7970b-600wi.gif" alt="green-slime-11.gif" class="qua-img3">
+		<div id="qua3-guide">
+			<h1>Chọn cho mình 1 tấm thẻ...</h1>
+		<button class="btn btn-info qua3-guide-button" style="margin-left: 20px;">chọn cho dui đi</button>
+		</div>
+		<div id="cards-container" class="col-11">
+			<img src="labai.webp" alt="labai.webp" class="card">
+			<img src="labai.webp" alt="labai.webp" class="card">
+			<img src="labai.webp" alt="labai.webp" class="card">
+			<img src="labai.webp" alt="labai.webp" class="card">
+			<img src="labai.webp" alt="labai.webp" class="card">
+			<img src="labai.webp" alt="labai.webp" class="card">
+			<img src="labai.webp" alt="labai.webp" class="card">
+			<img src="labai.webp" alt="labai.webp" class="card">
+			<img src="labai.webp" alt="labai.webp" class="card">
+		</div>
+	</div>
+	<div id="qua4">
+		<img src="green-slime-11.gif" alt="green-slime-11.gif">
+		<div id="form-enter-name" style="display: none;">
+			<input type="text" class="form-control-lg qua4-yourname" placeholder="Enter your name...">
+			<button class="btn btn-primary ok">Ok</button>
+		</div>
+		<p class="hello"></p>
+		<p class="happy-complete"></p>
+		<div class="query query-1" style="display: none;">
+			<div class="question">Câu hỏi 1: 1 + 1 = ?</div>
+			<div class="answers">
+				<div class="answer answer-false">A. 1</div>
+				<div class="answer answer-true answer-true-1">B. 2</div>
+				<div class="answer answer-false">C. 3</div>
+				<div class="answer answer-false">D. 4</div>
+			</div>
+			<p class="answer-result-true"></p>
+			<p class="answer-result-false"></p>
+		</div>
+		<div class="query query-2" style="display: none;">
+			<div class="question">Câu hỏi 2: Có 1 con trâu. Đầu nó thì hướng mặt trời mọc, nó quay trái 2 vòng sau đó quay ngược lại sau đó lại quay phải hay vòng hỏi cái đuôi của nó chỉ hướng nào?</div>
+			<div class="answers">
+				<div class="answer answer-false">A. Chỉ hướng Nam</div>
+				<div class="answer answer-false">B. chỉ hướng Bắc</div>
+				<div class="answer answer-false">C. Chỉ ngược hướng mặt trời mọc</div>
+				<div class="answer answer-true answer-true-2">D. chỉ xuống đất</div>
+			</div>
+			<p class="answer-result-true"></p>
+			<p class="answer-result-false"></p>
+		</div>
+		<div class="query query-3" style="display: none;">
+			<div class="question">Câu hỏi 3: Cái gì người mua biết, người bán biết, người xài không bao giờ biết?</div>
+			<div class="answers">
+				<div class="answer answer-false">A. Tiền</div>
+				<div class="answer answer-true answer-true-3">B. Cái quan tài</div>
+				<div class="answer answer-false">C. Cái quần què</div>
+				<div class="answer answer-false">D. Tất cả đáp án trên đều đúng</div>
+			</div>
+			<p class="answer-result-true"></p>
+			<p class="answer-result-false"></p>
+		</div>
+		<div class="query query-4" style="display: none;">
+			<div class="question">Câu hỏi 4: Trần Bảo An sinh ngày tháng năm nào???</div>
+			<div class="answers">
+				<div class="answer answer-false">A. 19/05/2004</div>
+				<div class="answer answer-false">B. 19/05/2005</div>
+				<div class="answer answer-false">C. 19/05/2020</div>
+				<div class="answer answer-true answer-true-4">D. 19/05/2003</div>
+			</div>
+			<p class="answer-result-true"></p>
+			<p class="answer-result-false"></p>
+		</div>
+		<div class="query query-5" style="display: none;">
+			<div class="question">Câu hỏi 5: bạn có thấy An Trần đẹp chai không???</div>
+			<div class="answers">
+				<div class="answer answer-false">A. không</div>
+				<div class="answer answer-true answer-true-5">B. tất nhiên rồi<3</div>
+				<div class="answer answer-false">C. no</div>
+				<div class="answer answer-false">D. chê</div>
+			</div>
+			<p class="answer-result-true"></p>
+			<p class="answer-result-false"></p>
+			
+		</div>
+	</div>
+	<div id="qua4-me">
+		<div id="qua-in-qua4" class="col-5">
+			<img src="an.jpg" alt="An" style="width:250px;">
+			<button class="btn btn-danger get-button get-button4">
+				NHẬN
+			</button>
+		</div>
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			$(".gift-container").each(function() {
+				$(".gift-container").mouseover(function() {
+					$(this).children().css("transform","scale(1.4)");
+					$(this).find("button").show();
+					$("#gifts-section").css({"border-top": "0px solid #ffc107"}).animate({borderWidth:"1px"},300);
+				})
+				.mouseout(function() {
+					$(this).children().css("transform","scale(0.7)");
+					$(this).find("button").hide();
+					$("#gifts-section").animate({borderWidth:"0px"},50);
+				})
+			})
+
+			$(".open-gift1").click(function() {
+				$(".gift").eq(0).hide();
+				$("#qua-in-qua1").hide();
+				$("#qua1").css("display","flex");
+				
+				setTimeout(function() {
+					$(".qua-img1").hide();
+				},2000);
+				setTimeout(function() {
+					$("#qua-in-qua1").show();
+					alert("Phần thưởng của bạn là một em Maria ozaoa")
+				},2200);
+
+			})
+			$(".get-button").click(function() {
+				$("#qua1").fadeOut();
+			})
+
+			$(".open-gift2").click(function() {
+				$(".gift").eq(1).hide();
+				$("#qua-in-qua2").hide();
+				$("#qua2").css("display","flex");
+				
+				setTimeout(function() {
+					$(".qua-img2").hide();
+				},2000);
+				setTimeout(function() {
+					$("#qua-in-qua2").show();
+				},2200);
+
+			})
+			$(".get-button").click(function() {
+				$("#qua2").slideUp();
+			})
+		})
+
+		$(".open-gift3").click(function() {
+			$(".gift").eq(2).hide();
+			$("#qua3").css("display","flex");
+
+			setTimeout(function() {
+				$(".qua-img3").hide();
+			},2000);
+			setTimeout(function() {
+				$("#qua3-guide").fadeIn(1500);
+			},2200);
+		})	
+
+		$(".qua3-guide-button").click(function() {
+			$("#qua3-guide").fadeOut(1500);
+			setTimeout(function() {
+				$("#cards-container").css("display","flex");
+				setTimeout(function() {
+
+					$(".card").css("position","relative").addClass("animate");
+				},500);
+				setTimeout(function() {
+					$("#cards-container").slideUp().slideDown().fadeOut().fadeIn();
+				},2500);
+
+			},1600)
+		})
+		
+		$(".card").each(function() {
+			$(".card").click(function() {
+				$(this).attr(
+				{
+					"src":"bo sua.jpg"
+				});
+				setTimeout(function() {
+					$("#qua3").hide();
+					$("#qua3-st").css("display","flex");
+				},1000);
+				$(".get-button").click(function() {
+					$("#qua3-st").animate({marginLeft:"-2000px"},1000);
+					setTimeout(function() {
+						$("#qua3-st").hide();
+					},2000);
+				});
+			})
+			
+		})
+
+		$(".open-gift4").click(function() {
+			$(".gift").eq(3).hide();
+			$("#qua4").css("display","flex");
+			setTimeout(function() {
+				$("#qua4 img").hide();
+			},3000);
+			setTimeout(function() {
+				$("#form-enter-name").show();
+			},3200);
+		})
+		$(".ok").click(function() {
+			$("#form-enter-name").hide();
+			$(".hello").html("Xin chào "+ $(".qua4-yourname").val()+ "<br />" + " Để mở phần thưởng bạn phải vượt qua 5 câu hỏi sau.");
+			$(".hello").addClass("zoomOutRight animated delay-3s slow");
+			setTimeout(function() {
+				$(".hello").hide();
+			},4300);
+			setTimeout(function() {
+				$(".query-1").show();
+			},4800);
+		});
+
+		$(".answer-true").click(function() {
+			$(".answer-result-false").hide();
+			$(".answer-result-true").text("giỏi:))!");
+			$(".answer-result-true").addClass("animated bounce").show(500);
+		})
+		$(".answer-false").each(function() {
+			$(".answer-false").click(function() {
+				$(".answer-result-false").text("chọn lại dii, sai rùi!");
+				$(".answer-result-false").addClass("animated shake fast").show(500);
+			})
+		})
+		
+		$(".answer-true-1").click(function() {
+			$(".query-1").addClass("animated flipOutY delay-1s");
+			setTimeout(function() {
+				$(".query-1").hide();
+				$(".answer-result-true").hide();
+			},1700);
+
+			setTimeout(function() {
+				$(".query-2").show();
+			},2500)
+			$(".query-2").addClass("animated flipInY");
+		})
+
+		$(".answer-true-2").click(function() {
+			$(".query-2").addClass("animated flipOutY delay-1s");
+			setTimeout(function() {
+				$(".query-2").hide();
+				$(".answer-result-true").hide();
+			},1700);
+
+			setTimeout(function() {
+				$(".query-3").show();
+			},2500)
+			$(".query-3").addClass("animated flipInY");
+		})
+
+		$(".answer-true-3").click(function() {
+			$(".query-3").addClass("animated flipOutY delay-1s");
+			setTimeout(function() {
+				$(".query-3").hide();
+				$(".answer-result-true").hide();
+			},1700);
+
+			setTimeout(function() {
+				$(".query-4").show();
+			},2500)
+			$(".query-4").addClass("animated flipInY");
+		})
+
+		$(".answer-true-4").click(function() {
+			$(".query-4").addClass("animated flipOutY delay-1s");
+			setTimeout(function() {
+				$(".query-4").hide();
+				$(".answer-result-true").hide();
+			},1700);
+
+			setTimeout(function() {
+				$(".query-5").show();
+			},2500);
+		})
+		$(".answer-true-5").click(function() {
+			setTimeout(function() {
+				$(".query-5").show();
+			},2500);
+			$(".query-5").addClass("animated rollOut delay-1s");
+			setTimeout(function() {
+				$(".query-5").hide();
+			},4200);
+			setTimeout(function() {
+				$(".happy-complete").html("Chúc mừng " + $(".qua4-yourname").val() + " bạn đã vượt qua," + "<br />" + " Bạn xứng đáng nhận được ...<br />...AN TRẦN :)");
+				$(".happy-complete").addClass("animated hinge delay-3s slower");
+			},4400);
+			setTimeout(function() {
+				$(".happy-complete").hide();
+			},8000);
+			setTimeout(function() {
+				$("#qua4-me").css("display","flex");
+			},8200);
+		})
+		$("#qua4-me #qua-in-qua4 button").click(function() {
+			$("#qua4-me #qua-in-qua4").addClass("animated hinge");
+			setTimeout(function() {
+				$("#qua4-me").hide();
+				$("#qua4").hide();		
+			},1000);
+		});
+		
+	</script>
+	</div>
+</body>
+</html>
