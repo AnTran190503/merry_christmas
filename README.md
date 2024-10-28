@@ -2,23 +2,23 @@ Cài đặt Java: Tải JDK 14.0.1 từ trang web chính thức của Oracle ho�
 
 bash
 Sao chép mã
-sudo apt-get update
-sudo apt-get install openjdk-14-jdk
+- sudo apt-get update
+- sudo apt-get install openjdk-14-jdk
 Tải xuống và giải nén Apache Spark 3.1.1 với Hadoop 2.7:
 
 bash
 Sao chép mã
-wget https://downloads.apache.org/spark/spark-3.1.1/spark-3.1.1-bin-hadoop2.7.tgz
-tar -xzf spark-3.1.1-bin-hadoop2.7.tgz
-mv spark-3.1.1-bin-hadoop2.7 ~/spark-3.1.1-bin-hadoop2.7
+- wget https://downloads.apache.org/spark/spark-3.1.1/spark-3.1.1-bin-hadoop2.7.tgz
+- tar -xzf spark-3.1.1-bin-hadoop2.7.tgz
+- mv spark-3.1.1-bin-hadoop2.7 ~/spark-3.1.1-bin-hadoop2.7
 Bước 1': Thiết lập môi trường Java
 Thêm các biến môi trường JDK vào tệp .bashrc của bạn:
 
 bash
 Sao chép mã
-echo "export JAVA_HOME=/home/hufi/jdk-14.0.1/" >> ~/.bashrc
-echo "export PATH=\$PATH:\$JAVA_HOME/bin" >> ~/.bashrc
-source ~/.bashrc
+- echo "export JAVA_HOME=/home/hufi/jdk-14.0.1/" >> ~/.bashrc
+- echo "export PATH=\$PATH:\$JAVA_HOME/bin" >> ~/.bashrc
+- source ~/.bashrc
 Bước 2: Thiết lập các nút Master và Worker
 Thiết lập Nút Master:
 
@@ -26,8 +26,8 @@ Thiết lập Nút Master:
 
 bash
 Sao chép mã
-cd ~/spark-3.1.1-bin-hadoop2.7/bin/
-./spark-class org.apache.spark.deploy.master.Master
+- cd ~/spark-3.1.1-bin-hadoop2.7/bin/
+- ./spark-class org.apache.spark.deploy.master.Master
 Thiết lập Nút Worker:
 
 Khởi động các nút worker bằng cách kết nối chúng với master:
